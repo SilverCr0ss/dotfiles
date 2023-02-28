@@ -47,6 +47,9 @@ ln -s -f ~/.dotfiles/.xinitrc ~/.xinitrc
 ln -s -f ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s -f ~/.dotfiles/.bashrc ~/.bashrc
 
+if ! [[-d ~/config ]]; then
+ mkdir .config
+fi
 ln -s -f -n ~/.dotsfiles/i3 ~/.config
 ln -s -f -n ~/.dotfiles/picom ~/.config
 
