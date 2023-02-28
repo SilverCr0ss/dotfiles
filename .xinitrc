@@ -10,7 +10,7 @@ sleep 2 && {
  # JoplinDesktop.AppImage &  
   polybar &
   picom --backend xrender & 
-  feh --bg-fill ~/repos/background/arch-magenta-blue-1920x1080.png
+  feh --bg-fill ~/.dotfiles/background/arch-magenta-blue-1920x1080.png
 } &
 
 xset r rate 300 40
