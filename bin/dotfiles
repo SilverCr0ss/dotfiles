@@ -50,8 +50,9 @@ ln -s -f ~/.dotfiles/.bashrc ~/.bashrc
 if ! [[-d ~/config ]]; then
  mkdir .config
 fi
-ln -s -f -n ~/.dotsfiles/i3 ~/.config
-ln -s -f -n ~/.dotfiles/picom ~/.config
+
+ln -sf ~/.dotfiles/i3 ~/.config
+ln -sf ~/.dotfiles/picom ~/.config
 
 
 if [[ -f "$DOTFILES_DIR/requirements.yml" ]]; then
