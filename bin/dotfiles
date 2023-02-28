@@ -1,0 +1,57 @@
+#!/bin/bash
+set -e
+
+DOTFILES_DIR="$HOME/.dotfiles"
+SSH_DIR="$HOME/.ssh"
+
+# install open-vm-tools if host is vm
+if ! systemctl list-units --full -all | grep -q "vmtoolsd.service"; then
+  if ! systemd-detect-virt | grep -q 'none'; then
+    sudo pacman -S open-vm-tools --noconfirm
+    systemctl enable vmtoolsd.service
+    systemctl start vmtoolsd.service
+  fi
+fi
+
+# install ansible
+if ! [ -x "$(command -v ansible)" ]; then
+  sudo pacman -S ansible --noconfirm
+fi
+
+# create ssh-keys
+if ! [[ -f "$SSH_DIR/id_rsa" ]]; then
+  mkdir -p "$SSH_DIR"
+
+  chmod 700 "$SSH_DIR"
+  
+  ssh-keygen -b 521 -t ecdsa -f "$SSH_DIR/id_rsa" -N "" -C "$USER@$HOSTNAME"
+
+  cat "$SSH_DIR/id_rsa.pub" >> "$SSH_DIR/authorized_keys"
+
+  chmod 600 "$SSH_DIR/authorized_keys"
+fi
+
+# install yay
+if ! [ -x "$(command -v yay)" ]; then
+  cd ~
+  git clone "https://aur.archlinux.org/yay.git"
+  cd "yay"
+  makepkg -si --noconfirm
+  cd ~
+  rm -rf yay
+fi
+
+
+if [[ -f "$DOTFILES_DIR/requirements.yml" ]]; then
+  cd "$DOTFILES_DIR"
+
+  ansible-galaxy install -r requirements.yml
+fi
+
+cd "$DOTFILES_DIR"
+
+if [[ -f "$DOTFILES_DIR/vault-password.txt" ]]; then
+  ansible-playbook --diff --vault-password-file "$DOTFILES_DIR/vault-password.txt" "$DOTFILES_DIR/main.yml"
+else
+  ansible-playbook --diff "$DOTFILES_DIR/main.yml" --ask-become-pass
+fi

@@ -1,0 +1,25 @@
+---
+
+- hosts: localhost
+  tasks:
+    - name: install packages
+      become: true
+      become_user: root
+      community.general.pacman:
+        name:
+          - i3-wm
+          - firefox
+          - wget
+          - curl
+          - feh
+          - wezterm
+          - rofi
+          - polybar
+          - neofetch
+          - polybar
+          - picom
+          - man-pages
+          - man-db
+          - dmenu
+          - bash-completion
+        state: latest
