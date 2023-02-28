@@ -62,5 +62,5 @@ ln -s -f ~/.dotfiles/.xinitrc ~/.xinitrc
 ln -s -f ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s -f ~/.dotfiles/.bashrc ~/.bashrc
 
-ln -s -f ~/.dotfiles/i3 ~/.config
-ln -s -f ~/.dotfiles/picom ~/.config
+ln -s -f ~/.dotfiles/i3 ~/.config/i3
+ln -s -f ~/.dotfiles/picom ~/.config/picom
