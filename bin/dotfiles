@@ -60,4 +60,7 @@ fi
 
 ln -s -f ~/.dotfiles/.xinitrc ~/.xinitrc
 ln -s -f ~/.dotfiles/.bash_profile ~/.bash_profile
-ln -s -f ~/.dotfiles/.bashrc ~/.bashrssc
+ln -s -f ~/.dotfiles/.bashrc ~/.bashrc
+
+ln -s -f ~/.dotfiles/i3 ~/.config
+ln -s -f ~/.dotfiles/picom ~/.config
