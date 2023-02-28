@@ -22,4 +22,5 @@
           - man-db
           - dmenu
           - bash-completion
+          - starship
         state: latest

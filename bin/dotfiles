@@ -8,8 +8,8 @@ SSH_DIR="$HOME/.ssh"
 if ! systemctl list-units --full -all | grep -q "vmtoolsd.service"; then
   if ! systemd-detect-virt | grep -q 'none'; then
     sudo pacman -S open-vm-tools --noconfirm
-    systemctl enable vmtoolsd.service
-    systemctl start vmtoolsd.service
+    sudo systemctl enable vmtoolsd.service
+    sudo systemctl start vmtoolsd.service
   fi
 fi
 
