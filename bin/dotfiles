@@ -55,3 +55,9 @@ if [[ -f "$DOTFILES_DIR/vault-password.txt" ]]; then
 else
   ansible-playbook --diff "$DOTFILES_DIR/main.yml" --ask-become-pass
 fi
+
+# creating sym links
+
+ln -s -f ~/.dotfiles/.xinitrc ~/.xinitrc
+ln -s -f ~/.dotfiles/.bash_profile ~/.bash_profile
+ln -s -f ~/.dotfiles/.bashrc ~/.bashrssc
