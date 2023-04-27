@@ -2,7 +2,7 @@ dbus-update-activation-environment --all
 
 # delay exec after i3 start
 sleep 2 && { 
- vmware-user
+ #vmware-user
  sleep 1
  # ~/repos/scripts/get-wallpaper.sh
  # gnome-terminal --title="metask" -- zsh -c "while true; do tmux; done" &
@@ -10,7 +10,8 @@ sleep 2 && {
  # JoplinDesktop.AppImage &  
   polybar &
   picom --backend xrender & 
-  feh --bg-fill ~/.dotfiles/background/arch-magenta-blue-1920x1080.png
+  feh --bg-fill ~/.dotfiles/background/tux_black.jpg
+  xautolock -detectsleep -time 10 -locker slock &	
 } &
 
 xset r rate 300 40

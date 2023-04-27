@@ -1,6 +1,8 @@
 ---
 
-- hosts: localhost
+
+- name: "install packages"
+  hosts: localhost
   tasks:
     - name: install packages
       become: true
@@ -23,4 +25,22 @@
           - dmenu
           - bash-completion
           - starship
+          - okular
+          - ffmpeg
+          - spotify-launcher
+          - flameshot
+          - github-cli
+          - slock
+          - xautolock
+          - usbutils
+          - gimp
+          - openvpn
+          - obs-studio
+          - bluez
+          - bluez-utils
+          - blueman
+          - lxappearance-gtk3
+          - nemo
+          - papirus-icon-theme
+          - ttf-font-awesome
         state: latest
