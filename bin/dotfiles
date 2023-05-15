@@ -18,6 +18,11 @@ if ! [ -x "$(command -v ansible)" ]; then
   sudo pacman -S ansible --noconfirm
 fi
 
+# install ssh
+if ! [ -x "$(command -v ssh)" ]; then
+  sudo pacman -S openssh --noconfirm
+fi
+
 # create ssh-keys
 if ! [[ -f "$SSH_DIR/id_rsa" ]]; then
   mkdir -p "$SSH_DIR"
@@ -47,7 +52,7 @@ ln -s -f ~/.dotfiles/.xinitrc ~/.xinitrc
 ln -s -f ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s -f ~/.dotfiles/.bashrc ~/.bashrc
 
-if ! [[-d ~/config ]]; then
+if ! [ -d ~/.config ]; then
  mkdir .config
 fi
 

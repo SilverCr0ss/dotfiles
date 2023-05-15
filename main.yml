@@ -43,4 +43,6 @@
           - nemo
           - papirus-icon-theme
           - ttf-font-awesome
+          - perl-image-exiftool
+          - org-xev
         state: latest

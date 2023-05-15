@@ -10,7 +10,7 @@ sleep 2 && {
  # JoplinDesktop.AppImage &  
   polybar &
   picom --backend xrender & 
-  feh --bg-fill ~/.dotfiles/background/tux_grey.jpg
+  feh --bg-fill ~/.dotfiles/background/tux_darkgrey.jpg
   xautolock -detectsleep -time 10 -locker slock &	
 } &
 
