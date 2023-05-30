@@ -18,7 +18,6 @@
           - rofi
           - polybar
           - neofetch
-          - polybar
           - picom
           - man-pages
           - man-db
@@ -45,4 +44,5 @@
           - ttf-font-awesome
           - perl-image-exiftool
           - org-xev
+          - unzip
         state: latest
